@@ -1,21 +1,26 @@
 import { Routes, Route } from "react-router-dom"
-import Home from "./pages/Home"
+import Welcome from "./pages/Welcome"
 import Login from "./pages/Login"
-import Dashboard from "./pages/Dashboard"
+import LearnMore from "./pages/LearnMore"
 
+import Dashboard from "./pages/Dashboard"
 import RegisterTeam from "./pages/RegisterTeam"
 import UploadDocuments from "./pages/UploadDocuments"
 import ScoreboardRound1 from "./pages/ScoreboardRound1"
 import ScoreboardRound2 from "./pages/ScoreboardRound2"
 import Accounts from "./pages/Accounts"
+import Announcements from "./pages/Announcements"
+import ViewAnnouncements from "./components/ViewAnnouncements"
 
 import ProtectedRoute from "./components/ProtectedRoute"
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Welcome />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/learn-more" element={<LearnMore />} />
+      <Route path="/announcements" element={<ViewAnnouncements />} />
 
       {/* ALL DASHBOARD ROUTES PROTECTED */}
       <Route
@@ -68,6 +73,15 @@ function App() {
         element={
           <ProtectedRoute>
             <Accounts />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/dashboard/announcements"
+        element={
+          <ProtectedRoute>
+            <Announcements />
           </ProtectedRoute>
         }
       />

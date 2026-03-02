@@ -1,6 +1,10 @@
 @import "tailwindcss";
 html {
   scroll-behavior: smooth;
+  font-family: 'Racing Sans One', cursive;
+}
+body {
+  font-family: 'Racing Sans One', cursive;
 }
 .hide-scrollbar {
   scrollbar-width: none;        /* Firefox */

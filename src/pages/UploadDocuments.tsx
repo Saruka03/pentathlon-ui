@@ -9,7 +9,6 @@ import {
   Download,
   Presentation,
 } from "lucide-react"
-import bg from "../assets/bg.jpg"
 
 interface DocumentItem {
   id: string
@@ -115,20 +114,33 @@ const UploadDocuments = () => {
 
   return (
     <>
-      {/* BACKGROUND */}
+      {/* BACKGROUND - LearnMore style */}
+      <div className="absolute inset-0 bg-[#050816]" />
+      
+      {/* Ambient gradients */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] bg-blue-500/30 rounded-full blur-[120px]" />
+        <div className="absolute top-[30%] right-[-15%] w-[60%] h-[60%] bg-purple-500/25 rounded-full blur-[140px]" />
+        <div className="absolute bottom-[-20%] left-[20%] w-[50%] h-[50%] bg-pink-500/20 rounded-full blur-[100px]" />
+        <div className="absolute top-[10%] right-[20%] w-[30%] h-[30%] bg-cyan-400/15 rounded-full blur-[120px]" />
+      </div>
+
+      {/* Glass overlay */}
+      <div className="absolute inset-0 bg-white/5 backdrop-blur-2xl" />
+
+      {/* Content container */}
       <div
-        className="min-h-screen bg-cover bg-center flex items-center justify-center px-6"
-        style={{ backgroundImage: `url(${bg})` }}
+        className="relative min-h-screen flex items-center justify-center px-6 py-20"
       >
-        <div className="w-full max-w-6xl bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10">
-          <h1 className="text-3xl font-bold text-white text-center mb-8">
+        <div className="w-full max-w-6xl bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-10">
+          <h1 className="text-3xl font-bold text-white text-center mb-8" style={{ fontFamily: "'Racing Sans One', cursive" }}>
             Upload Documents
           </h1>
 
           {/* SEARCH */}
           <input
             placeholder="Search documents..."
-            className="mb-8 w-full px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/50 outline-none"
+            className="mb-8 w-full px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white placeholder-white/40 outline-none"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
@@ -137,7 +149,7 @@ const UploadDocuments = () => {
             {/* ADD */}
             <div
               onClick={() => setShowForm(true)}
-              className="cursor-pointer h-44 rounded-2xl bg-white/10 border border-dashed border-white/30 flex items-center justify-center text-white text-lg font-semibold"
+              className="cursor-pointer h-44 rounded-2xl bg-white/5 border border-dashed border-white/20 flex items-center justify-center text-white text-lg font-semibold"
             >
               + Add Document
             </div>
@@ -147,7 +159,7 @@ const UploadDocuments = () => {
               <motion.div
                 key={doc.id}
                 whileHover={{ scale: 1.05 }}
-                className="relative h-44 rounded-2xl bg-white/10 border border-white/20 text-white p-4 flex flex-col justify-between"
+                className="relative h-44 rounded-2xl bg-white/5 border border-white/10 text-white p-4 flex flex-col justify-between"
               >
                 <a
                   href={doc.file_url}
@@ -165,7 +177,7 @@ const UploadDocuments = () => {
                 <a
                   href={doc.file_url}
                   download
-                  className="absolute bottom-3 right-3 p-2 rounded-full bg-blue-500 hover:bg-blue-600"
+                  className="absolute bottom-3 right-3 p-2 rounded-full bg-cyan-500 hover:bg-cyan-400 text-white"
                 >
                   <Download size={16} />
                 </a>
@@ -177,19 +189,19 @@ const UploadDocuments = () => {
 
       {/* MODAL */}
       {showForm && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 px-4">
+        <div className="fixed inset-0 bg-[#050816]/80 backdrop-blur-sm flex items-center justify-center z-50 px-4">
           <div className="relative w-full max-w-2xl">
 
-            <div className="absolute inset-0 rounded-3xl bg-blue-500/20 blur-3xl opacity-80" />
+            <div className="absolute inset-0 rounded-3xl bg-cyan-500/20 blur-3xl opacity-80" />
 
-            <div className="relative bg-white/10 backdrop-blur-xl border border-blue-400/30 rounded-3xl p-10 space-y-8 shadow-[0_0_60px_rgba(59,130,246,0.45)]">
-              <h2 className="text-white text-2xl font-bold text-center">
+            <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10 space-y-8 shadow-[0_0_60px_rgba(75,163,255,0.45)]">
+              <h2 className="text-white text-2xl font-bold text-center" style={{ fontFamily: "'Racing Sans One', cursive" }}>
                 Upload Document
               </h2>
 
               <input
                 placeholder="Document Title"
-                className="w-full px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white"
+                className="w-full px-6 py-4 rounded-full bg-white/5 border border-white/10 text-white placeholder-white/40"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
@@ -197,12 +209,12 @@ const UploadDocuments = () => {
               <textarea
                 placeholder="Description"
                 rows={3}
-                className="w-full px-6 py-4 rounded-2xl bg-white/10 border border-white/20 text-white resize-none"
+                className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white placeholder-white/40 resize-none"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
 
-              <label className="cursor-pointer flex flex-col items-center justify-center h-40 rounded-2xl border border-dashed border-white/30 text-white">
+              <label className="cursor-pointer flex flex-col items-center justify-center h-40 rounded-2xl border border-dashed border-white/20 text-white">
                 Drag & drop files here
                 <span className="opacity-70 text-sm mt-1">or click to browse</span>
                 <input
@@ -227,7 +239,7 @@ const UploadDocuments = () => {
                 </button>
                 <button
                   onClick={handleSave}
-                  className="px-8 py-3 rounded-full bg-blue-500 text-white font-semibold shadow-[0_0_20px_rgba(59,130,246,0.8)] hover:shadow-[0_0_35px_rgba(59,130,246,1)] transition"
+                  className="px-8 py-3 rounded-full bg-cyan-500 text-white font-semibold shadow-[0_0_20px_rgba(75,163,255,0.8)] hover:shadow-[0_0_35px_rgba(75,163,255,1)] transition"
                 >
                   Save
                 </button>

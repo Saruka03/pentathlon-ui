@@ -29,21 +29,21 @@ const Navbar = () => {
   }, [])
 
   const linkClass = (id: string) =>
-    `cursor-pointer transition ${
-      active === id ? "text-white font-semibold" : "text-gray-400 hover:text-white"
+    `cursor-pointer transition-all duration-300 ease-out ${
+      active === id ? "text-white font-semibold" : "text-white/60 hover:text-white"
     }`
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-black/70 backdrop-blur border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <nav className="fixed top-0 w-full z-50 bg-white/10 backdrop-blur-lg border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
         {/* Logo */}
-        <div className="text-white font-bold text-xl">
+        <div className="text-white font-bold text-2xl tracking-tight" style={{ fontFamily: "'Racing Sans One', cursive" }}>
           Pentathlon
         </div>
 
         {/* Desktop */}
-        <ul className="hidden md:flex items-center gap-8 text-sm">
+        <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
           <li><a href="#home" className={linkClass("home")}>Home</a></li>
           <li><a href="#about" className={linkClass("about")}>About</a></li>
           <li><a href="#categories" className={linkClass("categories")}>Categories</a></li>
@@ -53,7 +53,7 @@ const Navbar = () => {
         {/* Mobile button */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-white text-2xl"
+          className="md:hidden text-white text-2xl p-2 rounded-lg hover:bg-white/10 transition-all duration-300"
         >
           ☰
         </button>
@@ -67,9 +67,9 @@ const Navbar = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-black border-t border-white/10"
+            className="md:hidden bg-white/10 backdrop-blur-lg border-t border-white/10"
           >
-            <ul className="flex flex-col px-6 py-6 space-y-4 text-sm">
+            <ul className="flex flex-col px-6 py-8 space-y-4 text-sm font-medium">
               <li><a href="#home" onClick={() => setOpen(false)} className={linkClass("home")}>Home</a></li>
               <li><a href="#about" onClick={() => setOpen(false)} className={linkClass("about")}>About</a></li>
               <li><a href="#categories" onClick={() => setOpen(false)} className={linkClass("categories")}>Categories</a></li>

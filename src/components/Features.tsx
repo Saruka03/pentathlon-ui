@@ -32,14 +32,28 @@ const Features = () => {
   return (
     <section
       id="categories"
-      className="py-24 px-6 bg-black"
+      className="relative py-32 px-6 overflow-hidden"
     >
+      {/* BACKGROUND - LearnMore style */}
+      <div className="absolute inset-0 bg-[#050816]" />
+      
+      {/* Ambient gradients */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] bg-blue-500/30 rounded-full blur-[120px]" />
+        <div className="absolute top-[30%] right-[-15%] w-[60%] h-[60%] bg-purple-500/25 rounded-full blur-[140px]" />
+        <div className="absolute bottom-[-20%] left-[20%] w-[50%] h-[50%] bg-pink-500/20 rounded-full blur-[100px]" />
+        <div className="absolute top-[10%] right-[20%] w-[30%] h-[30%] bg-cyan-400/15 rounded-full blur-[120px]" />
+      </div>
+
+      {/* Glass overlay */}
+      <div className="absolute inset-0 bg-white/5 backdrop-blur-2xl" />
+
       {/* Section Header */}
-      <div className="max-w-6xl mx-auto text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold text-white">
+      <div className="relative max-w-6xl mx-auto text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-semibold text-white" style={{ fontFamily: "'Racing Sans One', cursive" }}>
           Pentathlon Categories
         </h2>
-        <p className="mt-4 text-gray-400 max-w-2xl mx-auto italic">
+        <p className="mt-6 text-white/60 max-w-2xl mx-auto italic text-lg">
           "Five disciplines. One ultimate challenge. Compete across diverse
           domains and prove your excellence"
         </p>
@@ -54,18 +68,21 @@ const Features = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            whileHover={{ y: -10 }}
-            className="relative bg-zinc-900 border border-white/10 rounded-2xl p-8 text-center
-                       hover:border-primary/50 transition-all duration-300
-                       shadow-lg hover:shadow-primary/30"
+            whileHover={{ y: -8, scale: 1.02 }}
+            className="relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-10 text-center
+                       hover:border-white/20 hover:bg-white/10 transition-all duration-300 ease-out
+                       shadow-2xl shadow-black/20 group"
           >
-            <div className="text-5xl mb-6">{item.icon}</div>
+            {/* Glow effect on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 rounded-3xl transition-all duration-300" />
 
-            <h3 className="text-xl font-semibold text-white mb-3">
+            <div className="relative text-6xl mb-6">{item.icon}</div>
+
+            <h3 className="relative text-xl font-semibold text-white mb-4" style={{ fontFamily: "'Racing Sans One', cursive" }}>
               {item.title}
             </h3>
 
-            <p className="text-gray-400 text-sm leading-relaxed italic">
+            <p className="relative text-white/60 text-sm leading-relaxed italic">
               {item.desc}
             </p>
           </motion.div>
