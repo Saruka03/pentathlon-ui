@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { Crown, Star } from "lucide-react"
+import {  Star } from "lucide-react"
 
 // Medal SVG Component with folded fabric ribbon style
 interface MedalProps {

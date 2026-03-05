@@ -2,7 +2,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useNavigate } from "react-router-dom"
 import { Calculator, FlaskConical, Monitor, Globe, Trophy, MapPin, User, Megaphone, Image } from "lucide-react"
-import PodiumLeaderboard from "../components/PodiumLeaderboard"
+//import PodiumLeaderboard from "../components/PodiumLeaderboard"
 import WinnerCards from "../components/WinnerCards"
 import ScrollToTop from "../components/ScrollToTop"
 
