@@ -52,17 +52,17 @@ const WinnerCards = () => {
     <div className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-5xl mx-auto px-6">
       {/* 2nd Place */}
       <div className="w-full md:w-72">
-        <WinnerCard position="2nd" prize="20,000" delay={0} />
+        <WinnerCard position="2nd" prize="15,000" delay={0} />
       </div>
       
       {/* 1st Place - Center */}
       <div className="w-full md:w-80">
-        <WinnerCard position="1st" prize="35,000" delay={0.2} />
+        <WinnerCard position="1st" prize="25,000" delay={0.2} />
       </div>
       
       {/* 3rd Place */}
       <div className="w-full md:w-72">
-        <WinnerCard position="3rd" prize="9,500" delay={0.4} />
+        <WinnerCard position="3rd" prize="10,000" delay={0.4} />
       </div>
     </div>
   )

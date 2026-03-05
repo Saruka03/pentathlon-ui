@@ -42,12 +42,6 @@ const CTA = () => {
             <Button onClick={() => navigate("/login")}>
               Register Now
             </Button>
-            <Button
-              variant="outline"
-              onClick={() => navigate("/learn-more")}
-            >
-              Learn More
-            </Button>
           </div>
         </div>
       </motion.div>

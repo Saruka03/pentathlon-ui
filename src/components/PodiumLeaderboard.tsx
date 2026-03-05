@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { Crown, Star } from "lucide-react"
+import { Star } from "lucide-react"
 
 // Medal SVG Component with folded fabric ribbon style
 interface MedalProps {
@@ -74,48 +74,51 @@ const PodiumLeaderboard: React.FC = () => {
     {
       rank: 2,
       name: "2nd Place",
-      score: "25,000",
-      color: "#c0c0c0",
-      ribbonColor: "#9ca3af",
-      starColor: "#e5e7eb",
-      bgGradient: "from-luna-mist to-luna-slate",
-      accentColor: "#c0c0c0",
-      height: "h-56 md:h-64"
+      score: "15,000",
+      description: ["Silver Medal", "Trophy", "Certificates"],
+      color: "#22d3ee",
+      ribbonColor: "#0891b2",
+      starColor: "#67e8f9",
+      bgGradient: "from-cyan-900 to-blue-900",
+      accentColor: "#22d3ee",
+      height: "h-64 md:h-72"
     },
     {
       rank: 1,
       name: "1st Place",
-      score: "15,000",
-      color: "#d4af37",
-      ribbonColor: "#b8860b",
-      starColor: "#fcd34d",
-      bgGradient: "from-luna-glow to-luna-cyan",
-      accentColor: "#d4af37",
-      height: "h-72 md:h-80"
+      score: "25,000",
+      description: ["Gold Medal", "Trophy", "Certificates"],
+      color: "#06b6d4",
+      ribbonColor: "#0e7490",
+      starColor: "#22d3ee",
+      bgGradient: "from-cyan-700 to-cyan-900",
+      accentColor: "#06b6d4",
+      height: "h-80 md:h-96"
     },
     {
       rank: 3,
       name: "3rd Place",
       score: "10,000",
-      color: "#cd7f32",
-      ribbonColor: "#a0522d",
-      starColor: "#fdba74",
-      bgGradient: "from-luna-lilac to-luna-slate",
-      accentColor: "#cd7f32",
-      height: "h-40 md:h-48"
+      description: ["Bronze Medal", "Trophy", "Certificates"],
+      color: "#67e8f9",
+      ribbonColor: "#155e75",
+      starColor: "#a5f3fc",
+      bgGradient: "from-blue-900 to-cyan-900",
+      accentColor: "#67e8f9",
+      height: "h-48 md:h-56"
     }
   ]
 
   return (
-    <section className="relative w-full py-20 overflow-hidden bg-luna-ink">
-      {/* Dark blue gradient background with wave effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-luna-ink via-luna-night to-luna-ink" />
+    <section className="relative w-full py-20 overflow-hidden bg-cyan-950">
+      {/* Dark cyan gradient background with wave effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-950 via-blue-950 to-cyan-950" />
       
       {/* Blue wave/light streak effects */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-full bg-gradient-to-r from-luna-glow/20 to-transparent transform rotate-12 animate-pulse" />
-        <div className="absolute top-0 right-1/4 w-96 h-full bg-gradient-to-l from-luna-glow/10 to-transparent transform -rotate-12" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-luna-slate/40 via-luna-ink to-luna-ink" />
+        <div className="absolute top-0 left-1/4 w-96 h-full bg-gradient-to-r from-cyan-500/20 to-transparent transform rotate-12 animate-pulse" />
+        <div className="absolute top-0 right-1/4 w-96 h-full bg-gradient-to-l from-cyan-500/10 to-transparent transform -rotate-12" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-900/40 via-cyan-950 to-cyan-950" />
       </div>
 
       {/* Flowing light streaks */}
@@ -123,7 +126,7 @@ const PodiumLeaderboard: React.FC = () => {
         <defs>
           <linearGradient id="blueWave" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="transparent" />
-            <stop offset="50%" stopColor="#4BA3FF" stopOpacity="0.5" />
+            <stop offset="50%" stopColor="#22d3ee" stopOpacity="0.5" />
             <stop offset="100%" stopColor="transparent" />
           </linearGradient>
         </defs>
@@ -133,8 +136,8 @@ const PodiumLeaderboard: React.FC = () => {
       </svg>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-luna-ice" style={{ fontFamily: "'Racing Sans One', cursive" }}>
-          Winners <span className="text-luna-cyan">&</span> Prizes
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-cyan-300" style={{ fontFamily: "'Racing Sans One', cursive" }}>
+          Prizes<span className="text-cyan-400"> & </span> Awards
         </h2>
 
         {/* Flexbox horizontal alignment - podium bars aligned at bottom */}
@@ -159,7 +162,7 @@ const PodiumLeaderboard: React.FC = () => {
 
               {/* Podium base with theme - heights based on rank, content at top */}
               <div
-                className={`w-full ${item.height} bg-gradient-to-t ${item.bgGradient} rounded-t-2xl flex flex-col items-center justify-start pt-4 border-t-2 border-luna-ice/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-sm`}
+                className={`w-full ${item.height} bg-gradient-to-t ${item.bgGradient} rounded-t-2xl flex flex-col items-center justify-start pt-4 border-t-2 border-cyan-300/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-sm`}
                 style={{
                   boxShadow: `0 0 30px ${item.accentColor}30, inset 0 0 20px rgba(0,0,0,0.3)`
                 }}
@@ -186,9 +189,24 @@ const PodiumLeaderboard: React.FC = () => {
                 </h3>
 
                 {/* Prize amount */}
-                <p className="text-luna-ice/90 text-sm md:text-base">
+                <p className="text-cyan-300/90 text-sm md:text-base">
                   Rs. {item.score}
                 </p>
+                {item.description && (
+                  <div className="flex flex-col gap-1 mt-2">
+                    {Array.isArray(item.description) ? (
+                      item.description.map((desc, idx) => (
+                        <p key={idx} className="text-cyan-200/70 text-xs md:text-sm">
+                          {desc}
+                        </p>
+                      ))
+                    ) : (
+                      <p className="text-cyan-200/70 text-xs md:text-sm px-2 text-center">
+                        {item.description}
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
 
               {/* Glow effect on hover */}

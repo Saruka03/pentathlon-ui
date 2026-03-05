@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom"
+import pentathlonLogo from "/pentathlon.png"
+
 const Footer = () => {
   return (
     <footer id="contact" className="relative bg-[#050816] border-t border-white/10">
@@ -15,31 +18,30 @@ const Footer = () => {
       {/* Glass overlay */}
       <div className="absolute inset-0 bg-white/5 backdrop-blur-2xl" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div className="relative max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-4 gap-8">
 
         {/* Brand */}
         <div>
-          <h3 className="text-2xl font-bold text-white" style={{ fontFamily: "'Racing Sans One', cursive" }}>Pentathlon</h3>
-          <p className="mt-4 text-white/60 text-sm">
-            
-          </p>
+          <img src={pentathlonLogo} alt="Pentathlon Logo" className="h-24 w-auto mb-2" />
+          <h3 className="text-xl font-bold text-white" style={{ fontFamily: "'Racing Sans One', cursive" }}>Pentathlon</h3>
         </div>
 
         {/* Event */}
         <div>
-          <h4 className="text-white font-semibold mb-6" style={{ fontFamily: "'Racing Sans One', cursive" }}>Event</h4>
-          <ul className="space-y-3 text-white/60 text-sm hover:*:text-white transition-all duration-300">
-            <li className="cursor-pointer hover:translate-x-1 transition-transform">About</li>
-            <li className="cursor-pointer hover:translate-x-1 transition-transform">Rounds</li>
-            <li className="cursor-pointer hover:translate-x-1 transition-transform">Rules</li>
-            <li className="cursor-pointer hover:translate-x-1 transition-transform">Schedule</li>
+          <h4 className="text-white font-semibold mb-4" style={{ fontFamily: "'Racing Sans One', cursive" }}>Event</h4>
+          <ul className="space-y-2 text-white/60 text-sm hover:*:text-white transition-all duration-300">
+            <li><Link to="/about" className="cursor-pointer hover:translate-x-1 transition-transform block">About</Link></li>
+            <li><Link to="/rules" className="cursor-pointer hover:translate-x-1 transition-transform block">Rules</Link></li>
+            <li><Link to="/prizes" className="cursor-pointer hover:translate-x-1 transition-transform block">Prizes</Link></li>
+            <li><Link to="/schedule" className="cursor-pointer hover:translate-x-1 transition-transform block">Schedule</Link></li>
+            <li><Link to="/announcements" className="cursor-pointer hover:translate-x-1 transition-transform block">Announcements</Link></li>
           </ul>
         </div>
 
         {/* Categories */}
         <div>
-          <h4 className="text-white font-semibold mb-6" style={{ fontFamily: "'Racing Sans One', cursive" }}>Categories</h4>
-          <ul className="space-y-3 text-white/60 text-sm hover:*:text-white transition-all duration-300">
+          <h4 className="text-white font-semibold mb-4" style={{ fontFamily: "'Racing Sans One', cursive" }}>Categories</h4>
+          <ul className="space-y-2 text-white/60 text-sm hover:*:text-white transition-all duration-300">
             <li className="cursor-pointer hover:translate-x-1 transition-transform">Maths</li>
             <li className="cursor-pointer hover:translate-x-1 transition-transform">Science</li>
             <li className="cursor-pointer hover:translate-x-1 transition-transform">IT</li>
@@ -50,8 +52,8 @@ const Footer = () => {
 
         {/* Contact */}
         <div>
-          <h4 className="text-white font-semibold mb-6" style={{ fontFamily: "'Racing Sans One', cursive" }}>Contact</h4>
-          <ul className="space-y-3 text-white/60 text-sm">
+          <h4 className="text-white font-semibold mb-4" style={{ fontFamily: "'Racing Sans One', cursive" }}>Contact</h4>
+          <ul className="space-y-2 text-white/60 text-sm">
             <li>Email: officialausdav@gmail.com</li>
             <li>Phone: +94 77 428 7823</li>
             <li>Location: YMCA Road</li>
@@ -61,7 +63,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom */}
-      <div className="relative border-t border-white/10 py-6 text-center text-white/50 text-sm">
+      <div className="relative border-t border-white/10 py-3 text-center text-white/50 text-xs">
         © {new Date().getFullYear()} Pentathlon Quiz Competition. All rights reserved.
       </div>
     </footer>

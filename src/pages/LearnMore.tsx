@@ -2,7 +2,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useNavigate } from "react-router-dom"
 import { Calculator, FlaskConical, Monitor, Globe, Trophy, MapPin, User, Megaphone, Image } from "lucide-react"
-import PodiumLeaderboard from "../components/PodiumLeaderboard"
+//import PodiumLeaderboard from "../components/PodiumLeaderboard"
 import WinnerCards from "../components/WinnerCards"
 import ScrollToTop from "../components/ScrollToTop"
 
@@ -13,14 +13,18 @@ const navItems = [
   { id: "memories", label: "Memories", icon: Image, navigateTo: "/learn-more#memories" }
 ]
 
+const subjectData = [
+  { icon: Calculator, label: "Maths", desc: "Logic, numbers, and problem-solving challenges", shortDesc: "Logic & numbers" },
+  { icon: FlaskConical, label: "Science", desc: "Discover the wonders of physics, chemistry & biology", shortDesc: "Physics, chemistry & biology" },
+  { icon: Trophy, label: "Sports", desc: "Test your knowledge of games and athletes", shortDesc: "Games & athletes" },
+  { icon: Globe, label: "GK", desc: "Current affairs, history, and world knowledge", shortDesc: "History & current affairs" },
+  { icon: Monitor, label: "IT", desc: "Technology, computers, and digital innovation", shortDesc: "Tech & innovation" }
+]
+
 const LearnMore: React.FC = () => {
   const [activeNav, setActiveNav] = useState("about")
   const navigate = useNavigate()
-
-  const [activeSubject, setActiveSubject] = useState<null | {
-    title: string
-    description: string
-  }>(null)
+  const [hoveredSubject, setHoveredSubject] = useState<string | null>(null)
 
   const handleNavClick = (id: string, navigateTo?: string) => {
     if (navigateTo) {
@@ -106,15 +110,15 @@ const LearnMore: React.FC = () => {
           {/* ================= FOCUS STREAM - ABOUT ================= */}
           <div id="about" className="mt-28">
             <div className="grid md:grid-cols-2 gap-16 items-center">
-              {/* Left Half - Text Content */}
-              <div className="text-left">
-                <h3 className="text-3xl font-semibold text-white mb-6" style={{ fontFamily: "'Racing Sans One', cursive" }}>
-                  About Focus Stream
-                </h3>
-                <p className="text-white/70 leading-relaxed mb-4">
-                  {/* Add your content here */}
-                </p>
-              </div>
+              {/* Left Half - Intro Text */}
+                <div className="text-left order-2 md:order-1">
+                  <h3 className="text-3xl font-semibold text-white mb-4" style={{ fontFamily: "'Racing Sans One', cursive" }}>
+                    About Focus Stream
+                  </h3>
+                  <p className="text-white/70 leading-relaxed mb-6">
+                    Step into a thrilling arena where curiosity becomes power and knowledge turns into victory. Explore five dynamic worlds — numbers, discovery, competition, awareness, and technology — each designed to challenge your thinking and spark your brilliance. Choose your strength, trust your instincts, and compete with confidence to shine above the rest.
+                  </p>
+                </div>
 
               {/* Right Half - Pentagon Diagram */}
               <div className="relative flex justify-center items-center h-[520px]">
@@ -132,14 +136,8 @@ const LearnMore: React.FC = () => {
                 </div>
 
                 <div className="relative flex justify-center items-center">
-                  {/* SUBJECT ICONS */}
-                  {[
-                    { icon: Calculator, label: "Maths", desc: "Analytical thinking" },
-                    { icon: FlaskConical, label: "Science", desc: "Scientific logic" },
-                    { icon: Monitor, label: "IT", desc: "Computing skills" },
-                    { icon: Globe, label: "GK", desc: "General awareness" },
-                    { icon: Trophy, label: "Sports", desc: "Teamwork & endurance" }
-                  ].map(({ icon: Icon, label, desc }, i) => {
+                  {/* SUBJECT ICONS with Hover Tooltips */}
+                  {subjectData.map(({ icon: Icon, label, shortDesc }, i) => {
                     const angle = -90 + i * 72
                     const r = 200
                     const x = r * Math.cos((angle * Math.PI) / 180)
@@ -150,18 +148,35 @@ const LearnMore: React.FC = () => {
                         key={label}
                         style={{ transform: `translate(${x}px, ${y}px)` }}
                         className="absolute flex flex-col items-center gap-3"
+                        onMouseEnter={() => setHoveredSubject(label)}
+                        onMouseLeave={() => setHoveredSubject(null)}
                       >
                         <motion.div
                           whileHover={{ scale: 1.2 }}
-                          onClick={() =>
-                            setActiveSubject({ title: label, description: desc })
-                          }
-                          className="cursor-pointer w-20 h-20 rounded-full bg-white/10
+                          className="relative cursor-pointer w-20 h-20 rounded-full bg-white/10
                                      border border-white/30
                                      shadow-[0_0_35px_rgba(255,255,255,0.3)]
                                      backdrop-blur-md flex items-center justify-center"
                         >
                           <Icon size={30} className="text-white" />
+                          
+                          {/* Hover Tooltip */}
+                          <AnimatePresence>
+                            {hoveredSubject === label && (
+                              <motion.div
+                                initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                                transition={{ duration: 0.2 }}
+                                className="absolute bottom-full mb-3 px-3 py-2 bg-white/20 backdrop-blur-lg 
+                                           border border-white/30 rounded-lg whitespace-nowrap z-20"
+                              >
+                                <p className="text-white text-xs font-medium">{shortDesc}</p>
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 
+                                              border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white/20" />
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </motion.div>
                         <span className="text-sm text-white/70">{label}</span>
                       </motion.div>
@@ -361,31 +376,6 @@ const LearnMore: React.FC = () => {
       </motion.section>
 
       <ScrollToTop />
-
-      {/* MODAL */}
-      <AnimatePresence>
-        {activeSubject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center
-                       bg-[#050816]/80 backdrop-blur-md"
-            onClick={() => setActiveSubject(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.7 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.7 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-2xl"
-            >
-              <h3 className="text-xl text-white">{activeSubject.title}</h3>
-              <p className="mt-4 text-white/70">{activeSubject.description}</p>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   )
 }

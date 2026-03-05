@@ -8,14 +8,14 @@ interface ButtonProps {
 
 const Button = ({ children, variant = "primary", onClick }: ButtonProps) => {
   const base =
-    "px-10 py-4 rounded-full font-semibold transition-all duration-300 ease-out focus:outline-none cursor-pointer"
+    "px-10 py-4 rounded-full font-semibold transition-all duration-300 ease-out focus:outline-none cursor-pointer shadow-lg shadow-black/20"
 
   const styles = {
     // Primary: White text on glass with subtle accent
     primary:
       "bg-white/10 text-white border border-white/20 backdrop-blur-lg " +
       "hover:bg-white/20 hover:border-white/30 hover:scale-[1.02] " +
-      "shadow-lg shadow-black/20",
+      "hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] hover:text-cyan-300 transition-all duration-300",
 
     // Secondary: Transparent with border
     outline:

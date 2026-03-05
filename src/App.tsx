@@ -2,6 +2,11 @@ import { Routes, Route } from "react-router-dom"
 import Welcome from "./pages/Welcome"
 import Login from "./pages/Login"
 import LearnMore from "./pages/LearnMore"
+import About from "./pages/About"
+import Rules from "./pages/Rules"
+import Schedule from "./pages/Schedule"
+import Prizes from "./pages/Prizes"
+import AnnouncementsPage from "./pages/AnnouncementsPage"
 
 import Dashboard from "./pages/Dashboard"
 import RegisterTeam from "./pages/RegisterTeam"
@@ -20,6 +25,11 @@ function App() {
       <Route path="/" element={<Welcome />} />
       <Route path="/login" element={<Login />} />
       <Route path="/learn-more" element={<LearnMore />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/rules" element={<Rules />} />
+      <Route path="/prizes" element={<Prizes />} />
+      <Route path="/schedule" element={<Schedule />} />
+      <Route path="/announcements" element={<AnnouncementsPage />} />
       <Route path="/announcements" element={<ViewAnnouncements />} />
 
       {/* ALL DASHBOARD ROUTES PROTECTED */}
