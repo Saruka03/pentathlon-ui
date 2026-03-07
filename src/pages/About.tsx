@@ -173,7 +173,7 @@ const About = () => {
               </p>
               
               <a 
-                href="https://piri2611.github.io/HTML_Practice/" 
+                href="https://pentathlon3-0.github.io/HTML_Practice/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-10 py-4 rounded-full font-semibold bg-white/10 text-white border border-white/20 backdrop-blur-lg hover:bg-white/20 hover:border-white/30 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] hover:text-cyan-300 transition-all duration-300 cursor-pointer"
