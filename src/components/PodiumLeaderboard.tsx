@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { Star } from "lucide-react"
 
+
 // Medal SVG Component with folded fabric ribbon style
 interface MedalProps {
   rank: number

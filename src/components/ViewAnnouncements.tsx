@@ -24,7 +24,7 @@ const navItems = [
 
 const ViewAnnouncements: React.FC<ViewAnnouncementsProps> = ({ onClose }) => {
   const [announcements, setAnnouncements] = useState<Announcement[]>([])
-  const [activeNav, setActiveNav] = useState("announcements")
+  const [activeNav] = useState("announcements")
   const navigate = useNavigate()
 
   /* Fetch Announcements */
