@@ -158,6 +158,88 @@ const About = () => {
               </div>
             </div>
           </div>
+
+          {/* HTML PRACTICE SECTION */}
+          <div className="mt-24">
+            <div className="text-center mb-8">
+              <h2 className="text-4xl md:text-5xl font-extrabold tracking-wide text-white" style={{ fontFamily: "'Racing Sans One', cursive" }}>
+                HTML <span className="text-white/60">PRACTICE</span>
+              </h2>
+            </div>
+
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-white/70 leading-relaxed text-lg mb-8">
+                Learn HTML easily with this beginner-friendly practice page designed especially for school students. It provides simple examples and hands-on exercises to help you understand the basics of HTML step by step. Explore, experiment, and build your own web pages while improving your web development skills in a fun and interactive way.
+              </p>
+              
+              <a 
+                href="https://piri2611.github.io/HTML_Practice/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-10 py-4 rounded-full font-semibold bg-white/10 text-white border border-white/20 backdrop-blur-lg hover:bg-white/20 hover:border-white/30 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] hover:text-cyan-300 transition-all duration-300 cursor-pointer"
+              >
+                Start Practicing
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          {/* QUIZ PRACTICE SECTION */}
+          <div className="mt-24">
+            <div className="text-center mb-8">
+              <h2 className="text-4xl md:text-5xl font-extrabold tracking-wide text-white" style={{ fontFamily: "'Racing Sans One', cursive" }}>
+                QUIZ <span className="text-white/60">PRACTICE</span>
+              </h2>
+            </div>
+
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-white/70 leading-relaxed text-lg mb-8">
+                Practice your knowledge with our interactive quiz platform designed for school students. It includes questions from subjects like Science, Mathematics, IT, GK, and Sports. Students can test their understanding, improve their thinking skills, and prepare for competitions while learning in a fun and engaging way.
+              </p>
+              
+              <a 
+                href="https://www.ausdav.org/quiz/1" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-10 py-4 rounded-full font-semibold bg-white/10 text-white border border-white/20 backdrop-blur-lg hover:bg-white/20 hover:border-white/30 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] hover:text-cyan-300 transition-all duration-300 cursor-pointer"
+              >
+                Start Quiz
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          {/* MEMORIES SECTION */}
+          <div className="mt-24">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-extrabold tracking-wide text-white" style={{ fontFamily: "'Racing Sans One', cursive" }}>
+                MEMORIES
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {['im1.jpeg', 'im2.jpeg', 'im3.jpeg', 'im4.jpeg', 'im5.jpeg', 'im6.jpeg', 'im7.jpeg', 'im8.jpeg'].map((photo, index) => (
+                <motion.div
+                  key={photo}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="relative aspect-square overflow-hidden rounded-lg border border-white/20"
+                >
+                  <img 
+                    src={`/photos/${photo}`} 
+                    alt={`Memory ${index + 1}`}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
