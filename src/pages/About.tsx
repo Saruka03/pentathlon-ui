@@ -232,7 +232,7 @@ const About = () => {
                   className="relative aspect-square overflow-hidden rounded-lg border border-white/20"
                 >
                   <img 
-                    src={`/photos/${photo}`} 
+                    src={`/pentathlon-ui/photos/${photo}`} 
                     alt={`Memory ${index + 1}`}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   />
